@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Products.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Products.Models;
 
 namespace Products.Controllers
 {
@@ -14,6 +12,10 @@ namespace Products.Controllers
         {
             new Product { Id = 101, Name = "HP Laptop", Price = 70000 },
             new Product { Id = 102, Name = "Dell Laptop", Price = 65000 },
+            new Product { Id = 103, Name = "Macbook", Price = 150000 },
+            new Product { Id = 104, Name = "Iphone", Price = 120000 },
+            new Product { Id = 105, Name = "OnePlus Mobile", Price = 60000 },
+            new Product { Id = 106, Name = "Printer", Price = 50000},
         };
         private static List<CartItem> cart = new List<CartItem>();
         public ActionResult Index()

@@ -1,0 +1,26 @@
+﻿@model Products.Models.Product
+
+@{
+    ViewBag.Title = "AddNewProduct";
+}
+
+<h2>Add New Product</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.Id)
+        @Html.EditorFor(model => model.Id)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Price)
+        @Html.EditorFor(model => model.Price)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

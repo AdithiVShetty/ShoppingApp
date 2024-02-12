@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Products.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var product in Model) {
+<tr>
+    <td>@product.Id</td>
+    <td>@product.Name</td>
+    <td>@product.Price</td>
+    <td>
+        @Html.ActionLink("Add to Cart", "AddToCart", new { productId = product.Id }, new { @class = "btn btn-primary btn-sm" })
+    </td>
+</tr>
+}
+
+</table>
+<br/>
+<a href="@Url.Action("AddNewProduct", "Products")" class="btn btn-primary">Add New Product</a>
+
+<a href="@Url.Action("Cart", "Products")" class="btn btn-primary">Go to Cart</a>

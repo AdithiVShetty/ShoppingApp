@@ -1,0 +1,38 @@
+﻿@model Products.Models.Checkout
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+
+    @foreach (var item in Model.CartItems)
+    {
+        <tr>
+            <td>@item.Product.Id</td>
+            <td>@item.Product.Name</td>
+            <td>@(item.Product.Price * item.Quantity)</td>
+            <td>@item.Quantity</td>
+        </tr>
+    }
+</table>
+
+<h4>Total Price: @Model.TotalAmount</h4>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address)
+        @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Checkout</button>
+}
